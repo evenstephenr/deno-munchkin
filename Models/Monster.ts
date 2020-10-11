@@ -1,5 +1,11 @@
-import { Surprise } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Models/Surprise.ts";
-import { generateRandomNumber } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/util/Random.ts";
+import { Surprise } from "./Surprise.ts";
+import { generateRandomNumber } from "../util/Random.ts";
+
+type MonsterOptions = {
+  level?: number;
+  strength?: number;
+  speed?: number;
+};
 
 /**
  * Monsters can be found behind Doors
@@ -14,10 +20,10 @@ export class Monster implements Surprise {
   /** a Player's speed must be >= in order to run away */
   speed: number;
 
-  constructor() {
-    this.level = generateRandomNumber(1, 20);
-    this.strength = generateRandomNumber(0, 20);
-    this.speed = generateRandomNumber(0, 10);
+  constructor(props?: MonsterOptions) {
+    this.level = props?.level || generateRandomNumber(1, 10);
+    this.strength = props?.strength || generateRandomNumber(0, 10);
+    this.speed = props?.speed || generateRandomNumber(0, 10);
   }
 
   getStats() {

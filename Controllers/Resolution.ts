@@ -1,15 +1,36 @@
-import { Player } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Models/Player.ts";
-import { Monster } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Models/Monster.ts";
-import { Item } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Models/Treasure.ts";
+import { Player } from "../Models/Player.ts";
+import { Monster } from "../Models/Monster.ts";
+import { Item } from "../Models/Treasure.ts";
 
 export const Resolution = {
   attack: (player: Player, monster: Monster) => {
-    if (player.stats.level + player.stats.strength > monster.level) return true;
+    const {
+      level: playerLevel,
+      strength: playerStrength,
+    } = player.rawStats();
+    const {
+      level: monsterLevel,
+      strength: monsterStrength,
+    } = monster.getStats();
+
+    if (
+      playerLevel + playerStrength >= monsterLevel + monsterStrength
+    ) {
+      return true;
+    }
     return false;
   },
   run: (player: Player, monster: Monster) => {
-    if (player.stats.level > monster.level) return true;
-    if (player.stats.speed >= monster.speed) return true;
+    const {
+      level: playerLevel,
+      speed: playerSpeed,
+    } = player.rawStats();
+    const {
+      level: monsterLevel,
+      speed: monsterSpeed,
+    } = monster.getStats();
+
+    if (playerLevel + playerSpeed > monsterLevel + monsterSpeed) return true;
     return false;
   },
   pickupItem: (player: Player, stats: Item) => {

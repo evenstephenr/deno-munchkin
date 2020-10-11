@@ -1,10 +1,7 @@
 import { readLines } from "https://deno.land/std@0.74.0/io/bufio.ts";
-import {
-  ACTION,
-  Turn,
-} from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Controllers/Turn.ts";
-import { Player } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Models/Player.ts";
-import { Door } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Models/Door.ts";
+import { ACTION, Turn } from "./Controllers/Turn.ts";
+import { Player } from "./Models/Player.ts";
+import { Door } from "./Models/Door.ts";
 
 async function main() {
   const player = new Player();

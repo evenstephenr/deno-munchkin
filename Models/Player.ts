@@ -1,7 +1,12 @@
-import { Item } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Models/Treasure.ts";
+import { Item } from "./Treasure.ts";
 
 type PlayerOptions = {
-  name?: string;
+  name?: string,
+  items?: Item[],
+  level?: number,
+  health?: number,
+  strength?: number,
+  speed?: number,
 };
 
 export class Player {
@@ -19,25 +24,16 @@ export class Player {
    * */
   // luck: number;
 
-  constructor(props: PlayerOptions = {}) {
-    const { 
-      name = "Player",
-      level = 1,
-      health = 10,
-      strength = 1,
-      speed = 1,
-      items = [],
-    } = props;
-
+  constructor(props?: PlayerOptions) {
     this.stats = {
-      level,
-      health,
-      strength,
-      speed,
+      level: props?.level || 1,
+      health: props?.health || 10,
+      strength: props?.strength || 1,
+      speed: props?.speed || 1,
     };
 
-    this.name = name;
-    this.items = items;
+    this.name = props?.name || 'Player';
+    this.items = props?.items || [];
   }
 
   addItem(item: Item) {
@@ -64,6 +60,10 @@ export class Player {
     this.stats.health--;
   }
 
+  rawStats() {
+    return { ...this.stats, items: this.items };
+  }
+
   getName() {
     return this.name;
   }
@@ -76,7 +76,7 @@ export class Player {
         items: this.items,
       },
       null,
-      2
+      2,
     );
   }
 }
