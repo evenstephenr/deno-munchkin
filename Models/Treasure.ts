@@ -33,7 +33,8 @@ export class Treasure implements Surprise {
       const isGood = coinFlip();
       if (isGood) {
         const impact = generateRandomNumber(1, 3);
-        if (impact >= 3) weight++;
+        if (impact > 1 && 3 >= impact) weight += 1;
+        if (impact > 3) weight += 1;
         return {
           ...acc,
           [item]: impact,
