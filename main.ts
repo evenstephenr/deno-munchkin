@@ -1,5 +1,8 @@
-import { readLines } from "https://deno.land/std/io/bufio.ts";
-import { ACTION, Turn } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Controllers/Turn.ts";
+import { readLines } from "https://deno.land/std@0.74.0/io/bufio.ts";
+import {
+  ACTION,
+  Turn,
+} from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Controllers/Turn.ts";
 import { Player } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Models/Player.ts";
 import { Door } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Models/Door.ts";
 
@@ -9,6 +12,7 @@ async function main() {
 
   function logActions(actions: string[] = []) {
     console.log("\n");
+
     actions.map((action, idx) => console.log(`[${idx}]: ${action}`));
   }
 
