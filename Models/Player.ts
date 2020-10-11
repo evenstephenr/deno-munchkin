@@ -1,4 +1,4 @@
-import { Item } from "./Treasure.ts";
+import { Item } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Models/Treasure.ts";
 
 type PlayerOptions = {
   name?: string;

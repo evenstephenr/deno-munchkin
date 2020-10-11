@@ -1,6 +1,6 @@
-import { Player } from "../Models/Player.ts";
-import { Monster } from "../Models/Monster.ts";
-import { Item } from "../Models/Treasure.ts";
+import { Player } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Models/Player.ts";
+import { Monster } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Models/Monster.ts";
+import { Item } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Models/Treasure.ts";
 
 export const Resolution = {
   attack: (player: Player, monster: Monster) => {

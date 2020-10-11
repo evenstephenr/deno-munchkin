@@ -1,6 +1,6 @@
-import { Monster } from "./Monster.ts";
-import { Treasure } from "./Treasure.ts";
-import { coinFlip } from "../util/Random.ts";
+import { Monster } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Models/Monster.ts";
+import { Treasure } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Models/Treasure.ts";
+import { coinFlip } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/util/Random.ts";
 
 export class Door {
   monster: Monster | null;

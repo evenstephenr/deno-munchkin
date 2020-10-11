@@ -1,5 +1,5 @@
-import { Surprise } from "./Surprise.ts";
-import { generateRandomNumber, coinFlip } from "../util/Random.ts";
+import { Surprise } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Models/Surprise.ts";
+import { generateRandomNumber, coinFlip } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/util/Random.ts";
 
 export type Item = {
   weight: number;

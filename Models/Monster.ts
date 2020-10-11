@@ -1,5 +1,5 @@
-import { Surprise } from "./Surprise.ts";
-import { generateRandomNumber } from "../util/Random.ts";
+import { Surprise } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Models/Surprise.ts";
+import { generateRandomNumber } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/util/Random.ts";
 
 /**
  * Monsters can be found behind Doors

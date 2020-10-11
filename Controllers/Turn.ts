@@ -1,7 +1,7 @@
-import { Player } from "../Models/Player.ts";
-import { Monster } from "../Models/Monster.ts";
-import { Door } from "../Models/Door.ts";
-import { Resolution } from "./Resolution.ts";
+import { Player } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Models/Player.ts";
+import { Monster } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Models/Monster.ts";
+import { Door } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Models/Door.ts";
+import { Resolution } from "https://raw.githubusercontent.com/evenstephenr/deno-munchkin/core/Controllers/Resolution.ts";
 
 export const ACTION = {
   INIT: "init",
