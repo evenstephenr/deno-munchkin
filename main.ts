@@ -32,6 +32,7 @@ async function main() {
     console.log("\nChoose an action");
     logActions(actions);
     const option = await getUserChoice();
+    // @ts-ignore
     const selected: string = actions[+option];
     if (selected === ACTION.HELP) {
       withHelp = true;
