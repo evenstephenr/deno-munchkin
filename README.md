@@ -34,3 +34,29 @@ Choose an action
 [1]: Inspect your gear
 
 ```
+
+## Quick actions
+
+Start this project
+
+```sh
+$ deno run main.ts
+```
+
+Start this project with the chrome debugger (then visit chrome://inspect/#devices in your browser)
+
+```sh
+$ deno run --inspect-brk main.ts
+```
+
+Refresh remote imports
+
+```sh
+$ deno cache --reload main.ts
+```
+
+Use deno to format a file
+
+```sh
+$ deno fmt main.ts
+```
