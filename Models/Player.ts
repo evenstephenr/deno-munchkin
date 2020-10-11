@@ -20,15 +20,24 @@ export class Player {
   // luck: number;
 
   constructor(props: PlayerOptions = {}) {
-    const { name = "Player" } = props;
+    const { 
+      name = "Player",
+      level = 1,
+      health = 10,
+      strength = 1,
+      speed = 1,
+      items = [],
+    } = props;
+
     this.stats = {
-      level: 1,
-      health: 10,
-      strength: 1,
-      speed: 1,
+      level,
+      health,
+      strength,
+      speed,
     };
+
     this.name = name;
-    this.items = [];
+    this.items = items;
   }
 
   addItem(item: Item) {
