@@ -7,6 +7,7 @@ type PlayerOptions = {
   health?: number,
   strength?: number,
   speed?: number,
+  maxWeight?: number,
 };
 
 export class Player {
@@ -18,6 +19,7 @@ export class Player {
   };
   name: string;
   items: Item[];
+  maxWeight: number;
   /**
    * TODO: this should basically give a player another reroll (with a random stat)
    *  if they lose a battle with a monster or cannot run away
@@ -34,10 +36,15 @@ export class Player {
 
     this.name = props?.name || 'Player';
     this.items = props?.items || [];
+    this.maxWeight = props?.maxWeight || 12;
   }
 
   addItem(item: Item) {
     this.items.push(item);
+  }
+
+  dropItem(index: number) {
+    this.items.splice(index, 1);
   }
 
   adjustHealth(n: number) {
@@ -61,7 +68,7 @@ export class Player {
   }
 
   rawStats() {
-    return { ...this.stats, items: this.items };
+    return { ...this.stats, items: this.items, maxWeight: this.maxWeight };
   }
 
   getName() {

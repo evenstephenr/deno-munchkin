@@ -26,17 +26,37 @@ Deno.test("Controllers/Resolution -> Resolution.run()", () => {
   assertEquals(Resolution.run(TestPlayer, TestMonster), true);
 });
 
-Deno.test("Controllers/Resolution -> Resolution.pickupItem()" , () => {
-  const TestPlayer = new Player({ health: 5, speed: 5, strength: 5 });
-  Resolution.pickupItem(TestPlayer, { health: 1, speed: 2, strength: 3, weight: 0 });
+Deno.test("Controllers/Resolution -> Resolution.pickupItem()", () => {
+  const TestPlayer = new Player(
+    { health: 5, speed: 5, strength: 5, maxWeight: 2 },
+  );
+  Resolution.pickupItem(
+    TestPlayer,
+    { health: 1, speed: 2, strength: 3, weight: 1 },
+  );
   assertEquals(TestPlayer.rawStats().items.length, 1);
   assertEquals(TestPlayer.rawStats().health, 6);
   assertEquals(TestPlayer.rawStats().speed, 7);
   assertEquals(TestPlayer.rawStats().strength, 8);
 
-  Resolution.pickupItem(TestPlayer, { health: -6, speed: -7, strength: -8, weight: 0 });
+  Resolution.pickupItem(
+    TestPlayer,
+    { health: -6, speed: -7, strength: -8, weight: 1 },
+  );
   assertEquals(TestPlayer.rawStats().items.length, 2);
   assertEquals(TestPlayer.rawStats().health, 0);
   assertEquals(TestPlayer.rawStats().speed, 0);
   assertEquals(TestPlayer.rawStats().strength, 0);
+
+  assertEquals(Resolution.pickupItem(TestPlayer, { weight: 1 }), false);
+  const { items } = TestPlayer.rawStats();
+  assertEquals(items.length, 2);
+});
+
+Deno.test("Controllers/Resolution -> Resolution.dropItem()", () => {
+  const TestPlayer = new Player({ items: [{ weight: 1 }, { weight: 2 }] });
+  TestPlayer.dropItem(0);
+  const { items } = TestPlayer.rawStats();
+  assertEquals(items.length, 1);
+  assertEquals(items[0], { weight: 2 });
 });

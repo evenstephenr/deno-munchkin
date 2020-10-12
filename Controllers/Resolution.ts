@@ -34,9 +34,21 @@ export const Resolution = {
     return false;
   },
   pickupItem: (player: Player, stats: Item) => {
-    player.addItem(stats);
-    if (stats.health) player.adjustHealth(stats.health);
-    if (stats.speed) player.adjustSpeed(stats.speed);
-    if (stats.strength) player.adjustStrength(stats.strength);
+    const { maxWeight, items } = player.rawStats();
+    const spaceLeft = maxWeight -
+      items.reduce((count, item) => count += item.weight, 0);
+    if (spaceLeft >= stats.weight) {
+      player.addItem(stats);
+      if (stats.health) player.adjustHealth(stats.health);
+      if (stats.speed) player.adjustSpeed(stats.speed);
+      if (stats.strength) player.adjustStrength(stats.strength);
+      return true;
+    }
+
+    return false;
   },
+  dropItem: (player: Player, itemIndex: number) => {
+    player.dropItem(itemIndex);
+    return true;
+  }
 };
