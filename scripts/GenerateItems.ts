@@ -1,4 +1,4 @@
-import { Treasure, Item } from "../Models/Treasure.ts";
+import { Item, Treasure } from "../Models/Treasure.ts";
 
 /** (example) $ deno run scripts/GenerateItems.ts 10 */
 const itemCount = Deno.args[0] || 100;

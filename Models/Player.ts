@@ -1,13 +1,13 @@
 import { Item } from "./Treasure.ts";
 
 type PlayerOptions = {
-  name?: string,
-  items?: Item[],
-  level?: number,
-  health?: number,
-  strength?: number,
-  speed?: number,
-  maxWeight?: number,
+  name?: string;
+  items?: Item[];
+  level?: number;
+  health?: number;
+  strength?: number;
+  speed?: number;
+  maxWeight?: number;
 };
 
 export class Player {
@@ -34,7 +34,7 @@ export class Player {
       speed: props?.speed || 1,
     };
 
-    this.name = props?.name || 'Player';
+    this.name = props?.name || "Player";
     this.items = props?.items || [];
     this.maxWeight = props?.maxWeight || 12;
   }
@@ -81,6 +81,7 @@ export class Player {
         name: this.name,
         stats: this.stats,
         items: this.items,
+        maxWeight: this.maxWeight,
       },
       null,
       2,

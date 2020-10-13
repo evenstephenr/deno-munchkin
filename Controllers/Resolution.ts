@@ -50,5 +50,5 @@ export const Resolution = {
   dropItem: (player: Player, itemIndex: number) => {
     player.dropItem(itemIndex);
     return true;
-  }
+  },
 };
